@@ -1,0 +1,283 @@
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <style type="text/css" rel="stylesheet">
+        *
+        {
+            border: 0;
+        }
+        .touming_rec
+        {
+            /*padding: 15;*/
+            background-color:rgba(202,221,239,0.4);
+        }
+        /*.touming_wrong_icon
+        {
+            background-color:rgba(202,221,239,0.7);
+        }
+        .touming_wrong_text
+        {
+            background-color:rgba(202,221,239,0.7);
+        }*/
+        .login_rec
+        {
+             margin:30 0 0 0;
+        }
+        .welcometext
+        {
+            margin: 15 0;
+        }
+        .password_rec
+        {
+            /*外边距,元素与元素，分别是上、右、下、左的值*/
+            margin: 15 0 0 0;
+        }
+        .forgettext
+        {
+            /*外边距,元素与元素，分别是上、右、下、左的值*/
+            margin: 2 0 0 0;
+        }
+    </style>
+</head>
+<body>
+<table width="1200" align="center" valign="center"cellspacing="0" cellpadding="0">
+    <tr>
+        <td colspan="3" height="0">
+        <table>
+            <tr>
+                <td>
+                    <img src="images/logo.gif" height="35" width="35" align="right">
+                </td>
+                <td width="1" align="left">
+                    <img src="images/yishu.jpg">
+                </td>
+                <td width="1200" height="40" bgcolor="white">
+                    <!--font COLOR="aqua" size="6" face="">NBOP2.0</font-->
+                    <img src="images/ziti_nbop.gif">
+                </td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+
+    <tr width="1200">
+        <td  height="650">
+
+            <table border="0" background="images/beijing.jpg" cellspacing="0">
+                <tr height="175">
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+                <tr height="300">
+                    <td width="400">
+
+                    </td>
+
+                    <td width="400" align="center">
+                        <div class="touming_rec">
+                            <table border="0" cellspacing="0">
+                              <tr>
+                                  <td>
+                                      <table border="1" cellspacing="0">
+                                          <tr>
+                                              <td align="center">
+                                                 <div class="welcometext">
+                                                    <p>
+                                                      <font size="4" color="#2a98eb"  align="center" style="font-family: 'Microsoft JhengHei'">欢迎您，请登录</font>
+                                                    </p>
+                                                 </div>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="center">
+                                                  <p>
+                                                      <!--记得要加上ID属性，便于后面document.getElementById根据ID获取元素的值-->
+                                                      <input type="text" style="width: 200px;height: 30px;" id="username" width="20">
+                                                  </p>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="center">
+                                                  <div class="password_rec">
+                                                    <p>
+                                                      <input type="password" style="width: 200px;height: 30px;" id="password" width="20">
+                                                    </p>
+                                                  </div>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="center">
+                                                  <div class="login_rec">
+                                                      <p>
+                                                          <input type="button" id="loginbutton" onclick="logincheck(username,password)" style="border:0;border-radius:4px;background: deepskyblue;width: 200px;height: 30px; color:white;font-size: large;font-family: 'Microsoft JhengHei'" name="login" value="登录" width="60">
+                                                          <script text="javaScript">
+                                                              function logincheck(username,password){
+                                                                  /*alert("123");*/
+                                                                  var userName=document.getElementById("username").value;
+                                                                  var pwd=document.getElementById("password").value;
+                                                                  /*alert("pwd="+pwd+"username="+userName);*/
+                                                                  if (pwd=="123456" && userName=="nbop")
+                                                                  {
+                                                                      document.getElementById("wrongicon").style.display="none";
+                                                                      document.getElementById("wrongtext").style.display="none";
+                                                                      alert("登录成功");
+                                                                  }
+                                                                  else
+                                                                  {
+                                                                      <!--alert("登录失败");-->
+                                                                      document.getElementById("wrongicon").style.display="";
+                                                                      document.getElementById("wrongtext").style.display="";
+                                                                      document.getElementById("loginbutton").style.background="#c2c2c2";
+
+                                                                      <!--报错背景颜色处理-->
+                                                                      var str = "background-color:rgba(145,200,204,0.2);";
+                                                                      var divs = document.getElementsByTagName("div");
+                                                                      for(i=0;i<divs.length;i++){
+                                                                          if(divs[i].className == "touming_wrong_icon" || divs[i].className == "touming_wrong_text"){
+                                                                              divs[i].style.cssText = str;
+                                                                          }
+                                                                      }
+                                                                  }
+                                                              }
+                                                          </script>
+                                                      </p>
+                                                  </div>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="center">
+                                                  <div class="forgettext">
+                                                      <p>
+                                                        <table border="0">
+                                                          <tr>
+                                                            <td width=100>
+
+                                                            </td>
+                                                            <td width=200 align="right">
+                                                                <font size="0.5" color="white"  >忘记密码</font>
+                                                            </td>
+                                                            <td width=100>
+
+                                                            </td>
+                                                          </tr>
+                                                          </table>
+                                                      </p>
+                                                  </div>
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <tr>
+                                    <td align="center">
+
+                                        <div class="touming_wrong_text">
+
+                                            <table border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width=100>
+
+                                                    </td>
+                                                    <td id="wrongicon" width="10" height="10"  style="display:none">
+                                                        <!--div class="touming_wrong_icon"-->
+                                                        <img src="images/icon.jpg">
+                                                        <!--/div-->
+                                                    </td>
+                                                    <td width=180 align="center" id="wrongtext" style="display:none">
+
+                                                        <font size="0.5" color="red"  >对不起,请输入正确的登录名</font>
+
+                                                    </td>
+                                                    <td width=100>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </td>
+                    <td width="400">
+                    
+                    </td>
+                </tr>
+                <tr height="175">
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+
+    </tr>
+
+    <tr width="1200">
+        <td  height="25" bgcolor="#23879d" colspan="3">
+            <table border="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <img src="images/wifi.png" height="15" width="15">
+                    </td>
+                    <td>
+                        <img src="images/time.png" height="15" width="15">
+                    </td>
+                    <td>
+                        <!--font color="white">北京时间:13:25</font-->
+                        <div id="showtimes">
+                            <!--为解决访问该页面出现 "一闪",才出现时间，应当在现在容器（id为showtimes的层）里先调用一次show_cur_times函数；
+                            <script language="javascript">show_cur_times();</script-->
+                        </div>
+                        <script type="text/javascript" language="javascript">
+                            function show_cur_times(){
+                                //获取当前日期
+                                var date_time = new Date();
+
+                                //时
+                                var hours =date_time.getHours();
+                                //判断小于10，前面补0
+                                if(hours<10){
+                                    hours="0"+hours;
+                                }
+                                //分
+                                var minutes =date_time.getMinutes();
+                                //判断小于10，前面补0
+                                if(minutes<10){
+                                    minutes="0"+minutes;
+                                }
+                                //秒
+                                var seconds=date_time.getSeconds();
+                                //判断小于10，前面补0
+                                if(seconds<10){
+                                    seconds="0"+seconds;
+                                }
+                                //拼接时分
+                                var date_str = "北京时间:"+hours+":"+minutes+":"+seconds;
+
+                                //显示在id为showtimes的容器里
+                                document.getElementById("showtimes").innerHTML= date_str;
+                                //字体颜色为白色
+                                document.getElementById("showtimes").style.color="white";
+                            }
+
+                            //设置1秒调用一次show_cur_times函数
+                            setInterval("show_cur_times()",100);
+                        </script>
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
